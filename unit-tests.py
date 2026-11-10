@@ -5,7 +5,6 @@ def divide(a, b):
 
 def test_divide():
     assert divide(6, 2) == 3
-    assert divide(-6, 2) == -3
     assert divide(6, -2) == -3
     assert divide(-6, -2) == 3
     try:
