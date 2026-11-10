@@ -3,22 +3,24 @@ def divide(a, b):
         raise ValueError("Cannot divide by zero")
     return a / b
 
+
 def test_divide():
     assert divide(6, 2) == 3
     assert divide(6, -2) == -3
     assert divide(-6, -2) == 3
-    try:
+    import pytest
+
+    with pytest.raises(ValueError, match="Cannot divide by zero"):
         divide(6, 0)
-        assert False, "Expected ValueError"
-    except ValueError:
-        pass
+
 
 def MaxOfThree(a, b, c):
-    if(a >= b and a >= c):
+    if a >= b and a >= c:
         return a
-    if(b >= a and b >= c):
+    if b >= a and b >= c:
         return b
     return c
+
 
 def test_MaxOfThree():
     assert MaxOfThree(1, 2, 3) == 3
@@ -27,10 +29,10 @@ def test_MaxOfThree():
 
 
 def Compare(a, b):
-    return a>b
+    return a > b
+
 
 def test_Compare():
-    assert Compare(3, 2) == True
-    assert Compare(2, 3) == False
-    assert Compare(3, 3) == False
-
+    assert Compare(3, 2) is True
+    assert Compare(2, 3) is False
+    assert Compare(3, 3) is False
